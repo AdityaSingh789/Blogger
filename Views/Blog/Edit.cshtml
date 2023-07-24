@@ -1,0 +1,63 @@
+﻿@model Blogger.Models.ViewModel.BlogViewModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@section Styles
+{
+    <style type="text/css">
+        body{
+            background-color:lightgray;
+        }
+
+        .hh {
+            background-color: beige;
+        }
+    </style>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header hh">
+                    <h1 class="text-center">Edit the blog</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Edit">
+                        <div class="form-group">
+                            <label asp-for="UserName"></label>
+                            <input type="hidden" asp-for="Id"/>
+                            <input type="text" asp-for="UserName" class="form-control" placeholder="Enter your name" />
+                        </div>
+
+                            <div class="form-group">
+                                <label asp-for="Title"></label>
+                                <input type="text" asp-for="Title" class="form-control" placeholder="Blog Title" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+
+                        <div class="form-group">
+                            <label asp-for="Tag"></label>
+                            <input type="text" asp-for="Tag" class="form-control" placeholder="Blog tag" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Content"></label>
+                            <input type="text" asp-for="Content" class="form-control" placeholder="Your blog data..." />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-sm btn-outline-success float-md-right" />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

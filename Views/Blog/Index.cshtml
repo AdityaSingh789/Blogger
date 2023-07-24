@@ -1,0 +1,104 @@
+﻿<Blogger.Models.ViewModel.BlogViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@section Styles
+{
+    <style type="text/css">
+        body{
+            background-color:lightgray;
+        }
+        .heading{
+            color:darkcyan
+        }
+
+            .hh {
+                background-color: beige;
+            }
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            gap:30px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+        .container {
+            margin-top: 20px;
+            padding: 2px 16px;
+        }
+
+        .img {
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+           overflow: hidden;
+        }
+
+        .blg{
+            border: 2px thin black;
+            padding:10px 15px 15px 15px;
+            margin:10px 5px 10px 5px;
+        }
+
+        .Tag{
+            border:2px solid black;
+            border-radius:5px;
+            width:80px;
+            text-align:center;
+            background-color:cadetblue;
+            justify-content:center;
+            
+        }
+        .cntnt{
+            float:right;
+        }
+    </style>
+}
+<div>
+    <h1 class="text-center heading">Blogs World</h1>
+    <p class="text-center text-success">@TempData["Error"]</p>
+
+        @foreach (var data in Model)
+        {          
+            <div class="container">
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <div class="card">
+                            <div class="card-body">                                    
+                                   <h4 class="name"> <img class="img" src="data:image/png;base64,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"> <b>@data.UserName</b></h4>
+                                   <h2>@data.Title</h2>
+                                   <p class="Tag">@data.Tag</p>
+                                   <p class="cntnt">@data.Content</p>
+                                   <br /> <br />     
+                                   @if(User.Identity.IsAuthenticated && User.Identity.Name=="Admin"){
+                                   <a class="btn btn-sm btn-warning" asp-controller="Blog" asp-action="Edit" asp-route-id="@data.Id">Edit</a>
+                                   <a class="btn btn-sm btn-danger" onclick="return confirmDelete()" asp-controller="Blog" asp-action="Delete" asp-route-id="@data.Id">Delete</a>
+                                   }
+                                   <br /> <br />
+                                <hr width="50%" color="green" />
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+             </div>
+            
+               
+        }
+         @if(User.Identity.IsAuthenticated && User.Identity.Name!="Admin"){
+            <a class="btn btn-sm btn-success mb-4 mt-3" style="margin-left:500px" asp-controller="Blog" asp-action="Create">Create your own blog</a>
+         }
+</div>
+
+<script>
+    function confirmDelete(){
+        return confirm("Are you sure you want to delete this blog");
+    }
+</script>

@@ -1,0 +1,62 @@
+﻿@model Blogger.Models.ViewModel.BlogViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+@section Styles
+    {
+    <style type="text/css">
+        body {
+            background-color: lightgray;
+        }
+        .hh{
+            background-color:beige;
+        }
+    </style>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header hh">
+                    <h1 class="text-center">Create your own blog</h1>
+                    <p class="text-center text-danger">@TempData["message"]</p>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" asp-action="Create">
+                        <div class="form-group">
+                            <label>Author Name:</label>
+                             <input type="text" asp-for="UserName" class="form-control" placeholder="Enter your name" value="@User.Identity.Name.ToLower()" />
+                             <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Title"></label>
+                            <input type="text" asp-for="Title" class="form-control" placeholder="Blog Title" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Tag"></label>
+                            <input type="text" asp-for="Tag" class="form-control" placeholder="Blog Tag" />
+                            <span asp-validation-for="Tag" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Content"></label>
+                            <input type="text" asp-for="Content" class="form-control" placeholder="Your blog data..." autocomplete="off"/>
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-sm btn-outline-success float-md-right"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
